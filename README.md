@@ -30,4 +30,4 @@ Below are selected live projects.
 - **Tech:** Gemini, JSON schemas, Hugging Face Spaces
 - **Impact:** Winning hackathon submission
 - **Live:** https://huggingface.co/spaces/AlphaAwaken/Meta-Innovation-AI-MIA
-- **Code:** https://github.com/nameershah/Meta-Innovation-AI
+- **Code:** https://github.com/nameershah/Meta-Innovation-AI-MIA
