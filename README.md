@@ -24,6 +24,7 @@ Below are selected live projects.
 - **Code:** https://github.com/nameershah/MentorAI
 
 ---
+[LinkedIn](www.linkedin.com/in/muhammad-nameer-shah) | [Email](SMNS3960@gmail.com)
 
 ### Meta Innovation AI (MIA)
 - **Description:** Agentic innovation pipeline (Ideation → Validation → Execution) with structured JSON control
