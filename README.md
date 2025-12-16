@@ -20,7 +20,7 @@ Below are selected live projects.
 - **Description:** PDF & Audio RAG system with intelligent LLM routing for latency vs depth
 - **Tech:** Gemini Pro/Flash, RAG, Gradio
 - **Impact:** Hackathon demo with 120+ users
-- **Live:** https://huggingface.co/spaces/AlphaAwaken/MentorAI
+- **Live:** https://aistudio.google.com/apps/drive/1jX61pzQUuGnbiUBhk9DMI8kKxag1GrDz?showPreview=true&showAssistant=true&fullscreenApplet=true
 - **Code:** https://github.com/nameershah/MentorAI
 
 ---
