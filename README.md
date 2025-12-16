@@ -5,9 +5,9 @@ Below are selected live projects.
 
 ---
 
-## 🚀 Projects
+## Projects
 
-### 🧠 TaleemAI — Self-Healing Agentic Tutor
+### TaleemAI — Self-Healing Agentic Tutor
 - **Description:** Multi-agent tutor with deterministic fallback, memory, and failure recovery
 - **Tech:** Gemini, Groq (LLaMA 3), Streamlit, Hugging Face
 - **Impact:** 100+ users with recurring weekly usage
@@ -16,7 +16,7 @@ Below are selected live projects.
 
 ---
 
-### 📚 MentorAI — Multimodal Study Assistant
+### MentorAI — Multimodal Study Assistant
 - **Description:** PDF & Audio RAG system with intelligent LLM routing for latency vs depth
 - **Tech:** Gemini Pro/Flash, RAG, Gradio
 - **Impact:** Hackathon demo with 120+ users
@@ -25,7 +25,7 @@ Below are selected live projects.
 
 ---
 
-### 🧩 Meta Innovation AI (MIA)
+### Meta Innovation AI (MIA)
 - **Description:** Agentic innovation pipeline (Ideation → Validation → Execution) with structured JSON control
 - **Tech:** Gemini, JSON schemas, Hugging Face Spaces
 - **Impact:** Winning hackathon submission
