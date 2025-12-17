@@ -22,7 +22,7 @@ I design and ship agentic and multimodal AI systems with explicit, debuggable co
 
 **Live:** <a href="https://aistudio.google.com/apps/drive/1jX61pzQUuGnbiUBhk9DMI8kXag1GrDz?showPreview=true&showAssistant=true&fullscreenApplet=true" target="_blank">View Demo</a>
 
-**The Demo Video:** <a href="https://youtu.be/8zuhFf6jrGg?si=tjAicFFXT4pQ4yLZ" target="_blank">GitHub Repository</a>
+**The Demo Video:** <a href="https://youtu.be/8zuhFf6jrGg?si=tjAicFFXT4pQ4yLZ" target="_blank">The Demo Video</a>
 
 ### Meta Innovation AI (MIA)
 
