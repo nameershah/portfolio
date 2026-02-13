@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Muhammad Nameer Shah — AI Engineer specializing in agentic and multimodal systems.">
+    <meta name="author" content="Muhammad Nameer Shah">
+    <title>Muhammad Nameer Shah — AI Engineer</title>
+    <style>
+        :root {
+            --blue:         #58A6FF;
+            --blue-dark:    #4A8FDB;
+            --blue-glow:    rgba(88, 166, 255, 0.2);
+            --bg:           #0d1117;
+            --bg-card:      rgba(255, 255, 255, 0.05);
+            --text:         #e6edf3;
+            --text-sub:     #8b949e;
+            --text-mid:     #c9d1d9;
+            --border:       rgba(255, 255, 255, 0.10);
+            --gold:         #e3b341;
+            --gold-bg:      rgba(227, 179, 65, 0.08);
+            --gold-border:  rgba(227, 179, 65, 0.20);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-top: 76px;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* ── NAV ── */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(13, 17, 23, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo  { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.2px; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link  { color: var(--text-sub); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover { color: var(--blue); }
+
+        /* ── HERO ── */
+        .hero {
+            text-align: center;
+            padding: 6rem 0 4.5rem;
+            position: relative;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 360px; height: 360px;
+            background: var(--blue);
+            filter: blur(160px); opacity: 0.10;
+            z-index: -1; pointer-events: none;
+        }
+        h1 {
+            font-size: 3.25rem; font-weight: 800; letter-spacing: -1px;
+            background: linear-gradient(135deg, #ffffff 0%, #c9d1d9 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 1.25rem;
+        }
+        .hero-sub {
+            font-size: 1.15rem; color: var(--text-sub);
+            max-width: 680px; margin: 0 auto; line-height: 1.75;
+        }
+
+        /* ── SECTION TITLE ── */
+        .section-title {
+            font-size: 1.6rem; font-weight: 700;
+            margin-bottom: 2.25rem;
+            display: flex; align-items: center; gap: 1rem;
+            color: var(--text);
+        }
+        .section-title::after {
+            content: ''; flex: 1; height: 1px; background: var(--border);
+        }
+
+        /* ── GRID ──
+           Auto-fills any number of cards.
+           To add a project: edit the PROJECTS array at the bottom.
+        */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 1.75rem;
+            margin-bottom: 5rem;
+        }
+
+        /* ── CARD ── */
+        .card {
+            background: linear-gradient(145deg,
+                rgba(255,255,255,0.07) 0%,
+                rgba(255,255,255,0.02) 100%);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.75rem;
+            display: flex; flex-direction: column;
+            position: relative; overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.4,0,0.2,1),
+                        border-color 0.3s,
+                        box-shadow 0.3s;
+            opacity: 0;
+            animation: fadeUp 0.55s ease-out forwards;
+        }
+        .card::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at top right, rgba(88,166,255,0.06), transparent 65%);
+            opacity: 0; transition: opacity 0.3s; pointer-events: none;
+        }
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(88, 166, 255, 0.40);
+            box-shadow: 0 14px 48px rgba(0,0,0,0.30), 0 4px 16px var(--blue-glow);
+        }
+        .card:hover::before { opacity: 1; }
+
+        /* Stagger — extend for more than 10 cards */
+        .card:nth-child(1)  { animation-delay: 0.05s; }
+        .card:nth-child(2)  { animation-delay: 0.12s; }
+        .card:nth-child(3)  { animation-delay: 0.19s; }
+        .card:nth-child(4)  { animation-delay: 0.26s; }
+        .card:nth-child(5)  { animation-delay: 0.33s; }
+        .card:nth-child(6)  { animation-delay: 0.40s; }
+        .card:nth-child(7)  { animation-delay: 0.47s; }
+        .card:nth-child(8)  { animation-delay: 0.54s; }
+        .card:nth-child(9)  { animation-delay: 0.61s; }
+        .card:nth-child(10) { animation-delay: 0.68s; }
+
+        .card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+
+        .badge {
+            align-self: flex-start;
+            font-size: 0.70rem; font-weight: 700; letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: #fff;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(88,166,255,0.25);
+        }
+
+        .card h3 {
+            font-size: 1.45rem; font-weight: 700;
+            margin-bottom: 0.6rem; color: var(--text);
+        }
+
+        .card-desc {
+            color: var(--text-mid); font-size: 0.92rem;
+            line-height: 1.7; margin-bottom: 1rem; flex-grow: 1;
+        }
+
+        .impact {
+            font-size: 0.85rem; font-style: italic;
+            color: var(--text-sub); margin-bottom: 1.1rem;
+        }
+
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 1.4rem; }
+        .tech-tag {
+            font-size: 0.78rem;
+            color: var(--blue);
+            background: rgba(88,166,255,0.10);
+            border: 1px solid rgba(88,166,255,0.20);
+            padding: 4px 10px; border-radius: 6px;
+            font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+            font-weight: 500;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .tech-tag:hover {
+            background: rgba(88,166,255,0.18);
+            border-color: rgba(88,166,255,0.40);
+            transform: translateY(-2px);
+        }
+        .tech-tag.award {
+            color: var(--gold);
+            background: var(--gold-bg);
+            border-color: var(--gold-border);
+        }
+        .tech-tag.award:hover {
+            background: rgba(227,179,65,0.14);
+            border-color: rgba(227,179,65,0.35);
+        }
+
+        .links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; }
+        .btn {
+            padding: 9px 18px; border-radius: 8px;
+            font-size: 0.875rem; font-weight: 600;
+            display: inline-flex; align-items: center; gap: 5px;
+            transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            color: #0d1117;
+            box-shadow: 0 3px 10px rgba(88,166,255,0.28);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #6CB6FF 0%, var(--blue) 100%);
+            box-shadow: 0 5px 18px rgba(88,166,255,0.38);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid rgba(139,148,158,0.30);
+            color: var(--text-mid);
+        }
+        .btn-outline:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            background: rgba(88,166,255,0.07);
+            transform: translateY(-2px);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 0; text-align: center; margin-top: 2rem;
+        }
+        .social-row { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 1.5rem; }
+        .social-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 22px;
+            background: rgba(88,166,255,0.08);
+            border: 1px solid rgba(88,166,255,0.22);
+            border-radius: 10px;
+            color: var(--text); font-weight: 600; font-size: 0.9rem;
+            transition: all 0.25s;
+        }
+        .social-link:hover {
+            background: rgba(88,166,255,0.16);
+            border-color: var(--blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 16px rgba(88,166,255,0.22);
+        }
+        .copyright { color: var(--text-sub); font-size: 0.85rem; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.25rem; }
+            .hero { padding: 4rem 0 3rem; }
+            .nav-links { display: none; }
+            .grid { grid-template-columns: 1fr; }
+            .social-row { flex-direction: column; align-items: center; }
+            .links { flex-direction: column; }
+            .btn { justify-content: center; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(26px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-inner">
+        <span class="nav-logo">Muhammad Nameer Shah</span>
+        <div class="nav-links">
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#connect" class="nav-link">Connect</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero container">
+    <h1>Muhammad Nameer Shah</h1>
+    <p class="hero-sub">
+        AI Engineer specializing in agentic and multimodal systems with explicit,
+        deterministic control flow and proven user adoption.
+    </p>
+</section>
+
+<div class="container" id="projects">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="grid" id="projects-grid"></div>
+</div>
+
+<footer id="connect">
+    <div class="container">
+        <div class="social-row">
+            <a href="https://www.linkedin.com/in/muhammad-nameer-shah/" target="_blank" rel="noopener" class="social-link">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+            </a>
+            <a href="https://github.com/nameershah" target="_blank" rel="noopener" class="social-link">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+            </a>
+            <a href="mailto:smns3960@gmail.com" class="social-link">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                Email
+            </a>
+        </div>
+        <p class="copyright">&copy; 2026 Muhammad Nameer Shah. Architecting the future of Agents.</p>
+    </div>
+</footer>
+
+<script>
+// ================================================================
+//  PROJECTS — the only section you ever need to edit.
+//
+//  To add a project:
+//    1. Copy any object below
+//    2. Paste it at the TOP of the array (newest first)
+//    3. Fill in your details and save
+//
+//  Fields:
+//    date   — badge label          e.g. "Mar 2026"
+//    title  — card heading
+//    desc   — 1-2 sentence description
+//    impact — italic stat line      e.g. "128 users · Hackathon Winner"
+//             set to null to hide
+//    tech   — array of tag strings
+//             prefix with "award:" to render the tag in gold
+//    links  — array of { label, url, primary? }
+//             primary:true  → filled blue button
+//             primary:false → outline button
+// ================================================================
+const PROJECTS = [
+  {
+    date: "Feb 2026",
+    title: "Flux OS",
+    desc: "Recursive multi-agent orchestrator for autonomous supply chains. Features game-theoretic negotiation, cross-vendor arbitrage, and on-chain settlement via Circle's Arc Testnet — with a deterministic ArcFlow Safety Kernel so no LLM ever touches a private key.",
+    impact: "Hack-Nation '26",
+    tech: ["Multi-Agent", "FastAPI", "Next.js", "Python", "TypeScript", "Arc Testnet", "award:Hack-Nation '26"],
+    links: [
+      { label: "View Code", url: "https://github.com/nameershah/flux-os", primary: false },
+    ],
+  },
+  {
+    date: "Jan 2026",
+    title: "ArcFlow Kernel",
+    desc: "Deterministic financial firewall between Google Gemini and the Arc Network. Prevents hallucinations in DeFi transactions using a strict policy engine with whitelist and budget-cap enforcement.",
+    impact: "Hallucination-proof commerce on Arc Testnet",
+    tech: ["Arc Network", "USDC", "Gemini", "TypeScript"],
+    links: [
+      { label: "Live Demo", url: "https://arcflow-kernel.vercel.app/", primary: true },
+      { label: "View Code", url: "https://github.com/nameershah/arcflow-kernel", primary: false },
+    ],
+  },
+  {
+    date: "Dec 2025",
+    title: "MentorAI",
+    desc: "Multimodal study assistant with layered RAG pipeline supporting PDF and audio inputs. Intelligent routing balances reasoning depth (Gemini Pro) against latency (Gemini Flash) for optimal UX.",
+    impact: "128+ demo users · Google DeepMind Hackathon Winner",
+    tech: ["Gemini 1.5 Pro", "RAG", "React", "TypeScript", "award:DeepMind Winner"],
+    links: [
+      { label: "Live Demo", url: "https://aistudio.google.com/apps/drive/1jX61pzQUuGnbiUBhk9DMI8kKxag1GrDz", primary: true },
+      { label: "Demo Video", url: "https://youtu.be/8zuhFf6jrGg?si=tjAicFFXT4pQ4yLZ", primary: false },
+      { label: "View Code", url: "https://github.com/nameershah/MentorAI", primary: false },
+    ],
+  },
+  {
+    date: "Dec 2025",
+    title: "Meta Innovation AI",
+    desc: "Agentic innovation pipeline with stage-driven workflow: Ideation, Validation, and Execution. Structured JSON schemas enforce strict reasoning paths and reduce hallucinations in open-ended tasks.",
+    impact: "28+ organic users · SnowFest Hackathon Winner",
+    tech: ["Gemini", "Python", "Gradio", "HF Spaces", "award:Hackathon Winner"],
+    links: [
+      { label: "Live Demo", url: "https://huggingface.co/spaces/AlphaAwaken/Meta-Innovation-AI-MIA", primary: true },
+      { label: "View Code", url: "https://github.com/nameershah/Meta-Innovation-AI-MIA", primary: false },
+    ],
+  },
+  {
+    date: "Nov 2025",
+    title: "TaleemAI",
+    desc: "Self-healing agentic tutor with deterministic fallback and recovery logic. Multi-agent system with H.E.A.R.L. routing that dynamically switches between Llama 3 via Groq and Gemini based on query complexity.",
+    impact: "100+ visits · Recurring weekly usage",
+    tech: ["Groq", "Llama 3", "Streamlit", "Python"],
+    links: [
+      { label: "Live Demo", url: "https://huggingface.co/spaces/AlphaAwaken/TaleemAI", primary: true },
+      { label: "View Code", url: "https://github.com/nameershah/TaleemAI", primary: false },
+    ],
+  },
+];
+
+// ── Render — no edits needed below ─────────────────────────────
+(function () {
+    const grid = document.getElementById("projects-grid");
+    grid.innerHTML = PROJECTS.map(p => {
+        const tags = p.tech.map(t => {
+            const isAward = t.startsWith("award:");
+            const label   = isAward ? t.slice(6) : t;
+            return `<span class="tech-tag${isAward ? " award" : ""}">${label}</span>`;
+        }).join("");
+
+        const impactLine = p.impact
+            ? `<p class="impact">${p.impact}</p>` : "";
+
+        const btns = p.links.map(l =>
+            `<a href="${l.url}" target="_blank" rel="noopener" class="btn ${l.primary ? "btn-primary" : "btn-outline"}">${l.label}</a>`
+        ).join("");
+
+        return `<article class="card">
+            <div class="card-inner">
+                <span class="badge">${p.date}</span>
+                <h3>${p.title}</h3>
+                <p class="card-desc">${p.desc}</p>
+                ${impactLine}
+                <div class="tech-stack">${tags}</div>
+                <div class="links">${btns}</div>
+            </div>
+        </article>`;
+    }).join("");
+})();
+</script>
+
+</body>
+</html>
