@@ -79,7 +79,6 @@
         .card:hover { transform: translateY(-7px); border-color: rgba(88, 166, 255, 0.40); box-shadow: 0 14px 48px rgba(0,0,0,0.30), 0 4px 16px var(--blue-glow); }
         .card:hover::before { opacity: 1; }
 
-        /* Staggered animation */
         .card:nth-child(1) { animation-delay: 0.05s; }
         .card:nth-child(2) { animation-delay: 0.12s; }
         .card:nth-child(3) { animation-delay: 0.19s; }
@@ -94,7 +93,6 @@
         
         .tech-stack { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 1.4rem; }
         .tech-tag { font-size: 0.78rem; color: var(--blue); background: rgba(88,166,255,0.10); border: 1px solid rgba(88,166,255,0.20); padding: 4px 10px; border-radius: 6px; font-family: ui-monospace, monospace; font-weight: 500; transition: all 0.2s; }
-        .tech-tag:hover { background: rgba(88,166,255,0.18); transform: translateY(-2px); }
         .tech-tag.award { color: var(--gold); background: var(--gold-bg); border-color: var(--gold-border); }
 
         .links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; }
@@ -102,7 +100,6 @@
         .btn-primary { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%); color: #0d1117; }
         .btn-outline { background: transparent; border: 1.5px solid rgba(139,148,158,0.30); color: var(--text-mid); }
 
-        /* FOOTER */
         footer { border-top: 1px solid var(--border); padding: 3rem 0; text-align: center; margin-top: 2rem; }
         .social-row { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 1.5rem; }
         .social-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.22); border-radius: 10px; color: var(--text); font-weight: 600; font-size: 0.9rem; transition: all 0.25s; }
@@ -146,14 +143,13 @@
 </footer>
 
 <script>
-// THE PROJECTS ARRAY
 const PROJECTS = [
   {
     date: "Feb 2026",
     title: "Flux OS",
     desc: "Recursive multi-agent orchestrator for autonomous supply chains. Features game-theoretic negotiation, cross-vendor arbitrage, and on-chain settlement via Circle's Arc Testnet — with a deterministic ArcFlow Safety Kernel so no LLM ever touches a private key.",
-    impact: "MIT Hack-Nation '26 — 2nd Place Winner",
-    tech: ["Multi-Agent", "FastAPI", "Next.js", "Python", "TypeScript", "Arc Testnet", "award:MIT Hack-Nation '26"],
+    impact: "Hack-Nation '26 — 2nd Place Winner",
+    tech: ["Multi-Agent", "FastAPI", "Next.js", "Python", "TypeScript", "Arc Testnet", "award:Hack-Nation '26"],
     links: [ { label: "View Code", url: "https://github.com/nameershah/flux-os", primary: false } ]
   },
   {
@@ -172,9 +168,8 @@ const PROJECTS = [
     title: "MentorAI",
     desc: "Multimodal study assistant with layered RAG pipeline supporting PDF and audio inputs. Intelligent routing balances reasoning depth (Gemini Pro) against latency (Gemini Flash) for optimal UX.",
     impact: "128+ demo users · Google DeepMind Hackathon",
-    tech: ["Gemini 1.5 Pro", "RAG", "React", "TypeScript", "award:DeepMind Winner"],
+    tech: ["Gemini 1.5 Pro", "RAG", "React", "TypeScript"],
     links: [
-      { label: "Live Demo", url: "https://aistudio.google.com/apps/drive/1jX61pzQUuGnbiUBhk9DMI8kKxag1GrDz", primary: true },
       { label: "View Code", url: "https://github.com/nameershah/MentorAI", primary: false }
     ]
   },
@@ -202,7 +197,6 @@ const PROJECTS = [
   }
 ];
 
-// RENDER LOGIC
 (function () {
   const grid = document.getElementById("projects-grid");
   grid.innerHTML = PROJECTS.map(p => {
