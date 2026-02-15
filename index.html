@@ -34,7 +34,7 @@
         a { text-decoration: none; color: inherit; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* NAV */
+        /* NAVBAR */
         .navbar {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
             background: rgba(13, 17, 23, 0.88);
@@ -79,6 +79,7 @@
         .card:hover { transform: translateY(-7px); border-color: rgba(88, 166, 255, 0.40); box-shadow: 0 14px 48px rgba(0,0,0,0.30), 0 4px 16px var(--blue-glow); }
         .card:hover::before { opacity: 1; }
 
+        /* Staggered animation delays */
         .card:nth-child(1) { animation-delay: 0.05s; }
         .card:nth-child(2) { animation-delay: 0.12s; }
         .card:nth-child(3) { animation-delay: 0.19s; }
@@ -92,7 +93,7 @@
         .impact { font-size: 0.85rem; font-style: italic; color: var(--text-sub); margin-bottom: 1.1rem; }
         
         .tech-stack { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 1.4rem; }
-        .tech-tag { font-size: 0.78rem; color: var(--blue); background: rgba(88,166,255,0.10); border: 1px solid rgba(88,166,255,0.20); padding: 4px 10px; border-radius: 6px; font-family: ui-monospace, monospace; font-weight: 500; transition: all 0.2s; }
+        .tech-tag { font-size: 0.78rem; color: var(--blue); background: rgba(88,166,255,0.10); border: 1px solid rgba(88,166,255,0.20); padding: 4px 10px; border-radius: 6px; font-family: ui-monospace, monospace; font-weight: 500; }
         .tech-tag.award { color: var(--gold); background: var(--gold-bg); border-color: var(--gold-border); }
 
         .links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; }
@@ -100,6 +101,7 @@
         .btn-primary { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%); color: #0d1117; }
         .btn-outline { background: transparent; border: 1.5px solid rgba(139,148,158,0.30); color: var(--text-mid); }
 
+        /* FOOTER */
         footer { border-top: 1px solid var(--border); padding: 3rem 0; text-align: center; margin-top: 2rem; }
         .social-row { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 1.5rem; }
         .social-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.22); border-radius: 10px; color: var(--text); font-weight: 600; font-size: 0.9rem; transition: all 0.25s; }
@@ -153,6 +155,14 @@ const PROJECTS = [
     links: [ { label: "View Code", url: "https://github.com/nameershah/flux-os", primary: false } ]
   },
   {
+    date: "Feb 2026",
+    title: "MentorAI",
+    desc: "Elite AI Study Assistant built for the Google AI Studio 'Vibe Coding' Competition. Features Gemini 3 Pro integration with transparent reasoning blocks, 3D animated flashcards, and an adaptive MCQ Quiz Agent with gamified scoring.",
+    impact: "Google AI Studio Competition Entry",
+    tech: ["Gemini 3 Pro", "React 18", "TypeScript", "Tailwind CSS", "Mermaid.js"],
+    links: [ { label: "View Code", url: "https://github.com/nameershah/MentorAI", primary: false } ]
+  },
+  {
     date: "Jan 2026",
     title: "ArcFlow Kernel",
     desc: "Deterministic financial firewall between Google Gemini and the Arc Network. Prevents hallucinations in DeFi transactions using a strict policy engine with whitelist and budget-cap enforcement.",
@@ -161,16 +171,6 @@ const PROJECTS = [
     links: [
       { label: "Live Demo", url: "https://arcflow-kernel.vercel.app/", primary: true },
       { label: "View Code", url: "https://github.com/nameershah/arcflow-kernel", primary: false }
-    ]
-  },
-  {
-    date: "Dec 2025",
-    title: "MentorAI",
-    desc: "Multimodal study assistant with layered RAG pipeline supporting PDF and audio inputs. Intelligent routing balances reasoning depth (Gemini Pro) against latency (Gemini Flash) for optimal UX.",
-    impact: "128+ demo users · Google DeepMind Hackathon",
-    tech: ["Gemini 1.5 Pro", "RAG", "React", "TypeScript"],
-    links: [
-      { label: "View Code", url: "https://github.com/nameershah/MentorAI", primary: false }
     ]
   },
   {
@@ -188,7 +188,7 @@ const PROJECTS = [
     date: "Nov 2025",
     title: "TaleemAI",
     desc: "Self-healing agentic tutor with deterministic fallback and recovery logic. Multi-agent system with H.E.A.R.L. routing that dynamically switches between Llama 3 via Groq and Gemini based on query complexity.",
-    impact: "100+ visits · Recurring weekly usage",
+    impact: "100+ visits · Team Lead",
     tech: ["Groq", "Llama 3", "Streamlit", "Python"],
     links: [
       { label: "Live Demo", url: "https://huggingface.co/spaces/AlphaAwaken/TaleemAI", primary: true },
