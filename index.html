@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Muhammad Nameer Shah — AI Engineer specializing in agentic and multimodal systems.">
+    <meta name="author" content="Muhammad Nameer Shah">
     <title>Muhammad Nameer Shah — AI Engineer</title>
     <style>
         :root {
@@ -10,6 +12,7 @@
             --blue-dark: #4A8FDB;
             --blue-glow: rgba(88, 166, 255, 0.2);
             --bg: #0d1117;
+            --bg-card: rgba(255, 255, 255, 0.05);
             --text: #e6edf3;
             --text-sub: #8b949e;
             --text-mid: #c9d1d9;
@@ -19,101 +22,215 @@
             --gold-border: rgba(227, 179, 65, 0.20);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
             color: var(--text);
             line-height: 1.6;
-            padding-top: 80px;
+            min-height: 100vh;
+            padding-top: 76px;
         }
+        a { text-decoration: none; color: inherit; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-        
-        /* Hero Section */
-        .hero { text-align: center; padding: 4rem 0; }
-        h1 { font-size: 3rem; margin-bottom: 1rem; background: linear-gradient(135deg, #fff, #8b949e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        /* Grid and Cards */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .card { 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid var(--border); 
-            border-radius: 16px; 
-            padding: 1.5rem; 
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
+
+        /* NAV */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(13, 17, 23, 0.88);
+            backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border); padding: 1rem 0;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--blue); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.2px; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link { color: var(--text-sub); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover { color: var(--blue); }
+
+        /* HERO */
+        .hero { text-align: center; padding: 6rem 0 4.5rem; position: relative; }
+        .hero::before {
+            content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 360px; height: 360px; background: var(--blue); filter: blur(160px); opacity: 0.10; z-index: -1; pointer-events: none;
+        }
+        h1 { font-size: 3.25rem; font-weight: 800; letter-spacing: -1px; background: linear-gradient(135deg, #ffffff 0%, #c9d1d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.25rem; }
+        .hero-sub { font-size: 1.15rem; color: var(--text-sub); max-width: 680px; margin: 0 auto; line-height: 1.75; }
+
+        /* SECTION TITLE */
+        .section-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 2.25rem; display: flex; align-items: center; gap: 1rem; color: var(--text); }
+        .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+        /* GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 1.75rem; margin-bottom: 5rem; }
+
+        /* CARD */
+        .card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid var(--border); border-radius: 18px; padding: 1.75rem;
+            display: flex; flex-direction: column; position: relative; overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), border-color 0.3s, box-shadow 0.3s;
+            opacity: 0; animation: fadeUp 0.55s ease-out forwards;
+        }
+        .card::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at top right, rgba(88,166,255,0.06), transparent 65%);
+            opacity: 0; transition: opacity 0.3s; pointer-events: none;
+        }
+        .card:hover { transform: translateY(-7px); border-color: rgba(88, 166, 255, 0.40); box-shadow: 0 14px 48px rgba(0,0,0,0.30), 0 4px 16px var(--blue-glow); }
+        .card:hover::before { opacity: 1; }
+
+        /* Staggered animation */
+        .card:nth-child(1) { animation-delay: 0.05s; }
+        .card:nth-child(2) { animation-delay: 0.12s; }
+        .card:nth-child(3) { animation-delay: 0.19s; }
+        .card:nth-child(4) { animation-delay: 0.26s; }
+        .card:nth-child(5) { animation-delay: 0.33s; }
+
+        .card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+        .badge { align-self: flex-start; font-size: 0.70rem; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: #fff; background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%); padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(88,166,255,0.25); }
+        .card h3 { font-size: 1.45rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text); }
+        .card-desc { color: var(--text-mid); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1rem; flex-grow: 1; }
+        .impact { font-size: 0.85rem; font-style: italic; color: var(--text-sub); margin-bottom: 1.1rem; }
         
-        .badge { font-size: 0.7rem; color: var(--blue); font-weight: bold; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
-        .impact { font-size: 0.85rem; font-style: italic; color: var(--text-sub); margin: 0.5rem 0; }
-        
-        .tech-tag { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; background: rgba(88, 166, 255, 0.1); color: var(--blue); margin-right: 5px; margin-top: 5px; display: inline-block; }
-        .tech-tag.award { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold-border); }
-        
-        .links { margin-top: auto; padding-top: 1.5rem; }
-        .btn { padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-right: 10px; }
-        .btn-primary { background: var(--blue); color: #0d1117; }
-        .btn-outline { border: 1px solid var(--border); color: var(--text-mid); }
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 1.4rem; }
+        .tech-tag { font-size: 0.78rem; color: var(--blue); background: rgba(88,166,255,0.10); border: 1px solid rgba(88,166,255,0.20); padding: 4px 10px; border-radius: 6px; font-family: ui-monospace, monospace; font-weight: 500; transition: all 0.2s; }
+        .tech-tag:hover { background: rgba(88,166,255,0.18); transform: translateY(-2px); }
+        .tech-tag.award { color: var(--gold); background: var(--gold-bg); border-color: var(--gold-border); }
+
+        .links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; }
+        .btn { padding: 9px 18px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; transition: all 0.25s; }
+        .btn-primary { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%); color: #0d1117; }
+        .btn-outline { background: transparent; border: 1.5px solid rgba(139,148,158,0.30); color: var(--text-mid); }
+
+        /* FOOTER */
+        footer { border-top: 1px solid var(--border); padding: 3rem 0; text-align: center; margin-top: 2rem; }
+        .social-row { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 1.5rem; }
+        .social-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.22); border-radius: 10px; color: var(--text); font-weight: 600; font-size: 0.9rem; transition: all 0.25s; }
+        .social-link:hover { background: rgba(88,166,255,0.16); border-color: var(--blue); transform: translateY(-3px); }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { h1 { font-size: 2.25rem; } .grid { grid-template-columns: 1fr; } .social-row { flex-direction: column; align-items: center; } }
     </style>
 </head>
 <body>
 
-    <section class="container hero">
-        <h1>Muhammad Nameer Shah</h1>
-        <p style="color: var(--text-sub)">AI Engineer specializing in Agentic & Multimodal Systems</p>
-    </section>
-
-    <div class="container">
-        <div class="grid" id="projects-grid"></div>
+<nav class="navbar">
+    <div class="container nav-inner">
+        <span class="nav-logo">Muhammad Nameer Shah</span>
+        <div class="nav-links">
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#connect" class="nav-link">Connect</a>
+        </div>
     </div>
+</nav>
 
-    <script>
-        const PROJECTS = [
-            {
-                date: "Feb 2026",
-                title: "Flux OS",
-                desc: "Recursive multi-agent orchestrator for autonomous supply chains. Features game-theoretic negotiation, cross-vendor arbitrage, and on-chain settlement via Circle's Arc Testnet.",
-                impact: "MIT Hack-Nation '26 — 2nd Place Winner",
-                tech: ["Multi-Agent", "FastAPI", "Next.js", "award:MIT Hack-Nation '26"],
-                links: [{ label: "View Code", url: "https://github.com/nameershah/flux-os", primary: true }]
-            },
-            {
-                date: "Jan 2026",
-                title: "ArcFlow Kernel",
-                desc: "Deterministic financial firewall between Google Gemini and the Arc Network. Prevents hallucinations in DeFi transactions using a strict policy engine.",
-                impact: "Hallucination-proof commerce on Arc Testnet",
-                tech: ["Arc Network", "USDC", "Gemini", "TypeScript"],
-                links: [{ label: "Live Demo", url: "https://arcflow-kernel.vercel.app/", primary: true }]
-            },
-            {
-                date: "Dec 2025",
-                title: "MentorAI",
-                desc: "Multimodal study assistant with layered RAG pipeline supporting PDF and audio inputs. Intelligent routing between Gemini Pro and Flash.",
-                impact: "Google DeepMind 'Vibe Coding' Submission",
-                tech: ["Gemini 1.5 Pro", "RAG", "React"],
-                links: [{ label: "Demo Video", url: "https://youtu.be/8zuhFf6jrGg", primary: false }]
-            }
-        ];
+<section class="hero container">
+    <h1>Muhammad Nameer Shah</h1>
+    <p class="hero-sub">AI Engineer specializing in agentic and multimodal systems with explicit, deterministic control flow and proven user adoption.</p>
+</section>
 
-        const grid = document.getElementById("projects-grid");
-        grid.innerHTML = PROJECTS.map(p => `
-            <article class="card">
-                <span class="badge">${p.date}</span>
-                <h3>${p.title}</h3>
-                <p style="font-size: 0.9rem; margin-top: 10px;">${p.desc}</p>
-                <p class="impact">${p.impact}</p>
-                <div style="margin: 10px 0;">
-                    ${p.tech.map(t => {
-                        const isAward = t.startsWith("award:");
-                        return `<span class="tech-tag ${isAward ? 'award' : ''}">${isAward ? t.slice(6) : t}</span>`;
-                    }).join('')}
-                </div>
-                <div class="links">
-                    ${p.links.map(l => `<a href="${l.url}" class="btn ${l.primary ? 'btn-primary' : 'btn-outline'}">${l.label}</a>`).join('')}
-                </div>
-            </article>
-        `).join('');
-    </script>
+<div class="container" id="projects">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="grid" id="projects-grid"></div>
+</div>
+
+<footer id="connect">
+    <div class="container">
+        <div class="social-row">
+            <a href="https://www.linkedin.com/in/muhammad-nameer-shah/" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+            <a href="https://github.com/nameershah" target="_blank" rel="noopener" class="social-link">GitHub</a>
+            <a href="mailto:smns3960@gmail.com" class="social-link">Email</a>
+        </div>
+        <p class="copyright">&copy; 2026 Muhammad Nameer Shah. Architecting the future of Agents.</p>
+    </div>
+</footer>
+
+<script>
+// THE PROJECTS ARRAY
+const PROJECTS = [
+  {
+    date: "Feb 2026",
+    title: "Flux OS",
+    desc: "Recursive multi-agent orchestrator for autonomous supply chains. Features game-theoretic negotiation, cross-vendor arbitrage, and on-chain settlement via Circle's Arc Testnet — with a deterministic ArcFlow Safety Kernel so no LLM ever touches a private key.",
+    impact: "MIT Hack-Nation '26 — 2nd Place Winner",
+    tech: ["Multi-Agent", "FastAPI", "Next.js", "Python", "TypeScript", "Arc Testnet", "award:MIT Hack-Nation '26"],
+    links: [ { label: "View Code", url: "https://github.com/nameershah/flux-os", primary: false } ]
+  },
+  {
+    date: "Jan 2026",
+    title: "ArcFlow Kernel",
+    desc: "Deterministic financial firewall between Google Gemini and the Arc Network. Prevents hallucinations in DeFi transactions using a strict policy engine with whitelist and budget-cap enforcement.",
+    impact: "Hallucination-proof commerce on Arc Testnet",
+    tech: ["Arc Network", "USDC", "Gemini", "TypeScript"],
+    links: [
+      { label: "Live Demo", url: "https://arcflow-kernel.vercel.app/", primary: true },
+      { label: "View Code", url: "https://github.com/nameershah/arcflow-kernel", primary: false }
+    ]
+  },
+  {
+    date: "Dec 2025",
+    title: "MentorAI",
+    desc: "Multimodal study assistant with layered RAG pipeline supporting PDF and audio inputs. Intelligent routing balances reasoning depth (Gemini Pro) against latency (Gemini Flash) for optimal UX.",
+    impact: "128+ demo users · Google DeepMind Hackathon",
+    tech: ["Gemini 1.5 Pro", "RAG", "React", "TypeScript", "award:DeepMind Winner"],
+    links: [
+      { label: "Live Demo", url: "https://aistudio.google.com/apps/drive/1jX61pzQUuGnbiUBhk9DMI8kKxag1GrDz", primary: true },
+      { label: "View Code", url: "https://github.com/nameershah/MentorAI", primary: false }
+    ]
+  },
+  {
+    date: "Dec 2025",
+    title: "Meta Innovation AI",
+    desc: "Agentic innovation pipeline with stage-driven workflow: Ideation, Validation, and Execution. Structured JSON schemas enforce strict reasoning paths and reduce hallucinations in open-ended tasks.",
+    impact: "28+ organic users · SnowFest Hackathon",
+    tech: ["Gemini", "Python", "Gradio", "HF Spaces", "award:Hackathon Winner"],
+    links: [
+      { label: "Live Demo", url: "https://huggingface.co/spaces/AlphaAwaken/Meta-Innovation-AI-MIA", primary: true },
+      { label: "View Code", url: "https://github.com/nameershah/Meta-Innovation-AI-MIA", primary: false }
+    ]
+  },
+  {
+    date: "Nov 2025",
+    title: "TaleemAI",
+    desc: "Self-healing agentic tutor with deterministic fallback and recovery logic. Multi-agent system with H.E.A.R.L. routing that dynamically switches between Llama 3 via Groq and Gemini based on query complexity.",
+    impact: "100+ visits · Recurring weekly usage",
+    tech: ["Groq", "Llama 3", "Streamlit", "Python"],
+    links: [
+      { label: "Live Demo", url: "https://huggingface.co/spaces/AlphaAwaken/TaleemAI", primary: true },
+      { label: "View Code", url: "https://github.com/nameershah/TaleemAI", primary: false }
+    ]
+  }
+];
+
+// RENDER LOGIC
+(function () {
+  const grid = document.getElementById("projects-grid");
+  grid.innerHTML = PROJECTS.map(p => {
+    const tags = p.tech.map(t => {
+      const isAward = t.startsWith("award:");
+      const label = isAward ? t.slice(6) : t;
+      return `<span class="tech-tag ${isAward ? "award" : ""}">${label}</span>`;
+    }).join("");
+    
+    const impactLine = p.impact ? `<p class="impact">${p.impact}</p>` : "";
+    const btns = p.links.map(l => 
+      `<a href="${l.url}" target="_blank" rel="noopener" class="btn ${l.primary ? "btn-primary" : "btn-outline"}">${l.label}</a>`
+    ).join("");
+
+    return `
+      <article class="card">
+        <div class="card-inner">
+          <span class="badge">${p.date}</span>
+          <h3>${p.title}</h3>
+          <p class="card-desc">${p.desc}</p>
+          ${impactLine}
+          <div class="tech-stack">${tags}</div>
+          <div class="links">${btns}</div>
+        </div>
+      </article>`;
+  }).join("");
+})();
+</script>
+
 </body>
 </html>
