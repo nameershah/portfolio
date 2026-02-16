@@ -56,10 +56,6 @@
         h1 { font-size: 3.25rem; font-weight: 800; letter-spacing: -1px; background: linear-gradient(135deg, #ffffff 0%, #c9d1d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.25rem; }
         .hero-sub { font-size: 1.15rem; color: var(--text-sub); max-width: 680px; margin: 0 auto; line-height: 1.75; }
 
-        /* SECTION TITLE */
-        .section-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 2.25rem; display: flex; align-items: center; gap: 1rem; color: var(--text); }
-        .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
         /* GRID */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 1.75rem; margin-bottom: 5rem; }
 
@@ -79,12 +75,10 @@
         .card:hover { transform: translateY(-7px); border-color: rgba(88, 166, 255, 0.40); box-shadow: 0 14px 48px rgba(0,0,0,0.30), 0 4px 16px var(--blue-glow); }
         .card:hover::before { opacity: 1; }
 
-        /* Staggered animation delays */
         .card:nth-child(1) { animation-delay: 0.05s; }
         .card:nth-child(2) { animation-delay: 0.12s; }
         .card:nth-child(3) { animation-delay: 0.19s; }
         .card:nth-child(4) { animation-delay: 0.26s; }
-        .card:nth-child(5) { animation-delay: 0.33s; }
 
         .card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
         .badge { align-self: flex-start; font-size: 0.70rem; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: #fff; background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%); padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(88,166,255,0.25); }
@@ -101,7 +95,6 @@
         .btn-primary { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%); color: #0d1117; }
         .btn-outline { background: transparent; border: 1.5px solid rgba(139,148,158,0.30); color: var(--text-mid); }
 
-        /* FOOTER */
         footer { border-top: 1px solid var(--border); padding: 3rem 0; text-align: center; margin-top: 2rem; }
         .social-row { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 1.5rem; }
         .social-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.22); border-radius: 10px; color: var(--text); font-weight: 600; font-size: 0.9rem; transition: all 0.25s; }
@@ -125,7 +118,7 @@
 
 <section class="hero container">
     <h1>Muhammad Nameer Shah</h1>
-    <p class="hero-sub">AI Engineer specializing in agentic and multimodal systems with explicit, deterministic control flow and proven user adoption.</p>
+    <p class="hero-sub">AI Engineer specializing in agentic and multimodal systems with explicit, deterministic control flow.</p>
 </section>
 
 <div class="container" id="projects">
@@ -149,23 +142,15 @@ const PROJECTS = [
   {
     date: "Feb 2026",
     title: "Flux OS",
-    desc: "Recursive multi-agent orchestrator for autonomous supply chains. Features game-theoretic negotiation, cross-vendor arbitrage, and on-chain settlement via Circle's Arc Testnet — with a deterministic ArcFlow Safety Kernel so no LLM ever touches a private key.",
+    desc: "Recursive multi-agent orchestrator for autonomous supply chains. Features game-theoretic negotiation, cross-vendor arbitrage, and on-chain settlement via Circle's Arc Testnet.",
     impact: "Hack-Nation '26 — 2nd Place Winner",
     tech: ["Multi-Agent", "FastAPI", "Next.js", "Python", "TypeScript", "Arc Testnet", "award:Hack-Nation '26"],
     links: [ { label: "View Code", url: "https://github.com/nameershah/flux-os", primary: false } ]
   },
   {
-    date: "Feb 2026",
-    title: "MentorAI",
-    desc: "Elite AI Study Assistant built for the Google AI Studio 'Vibe Coding' Competition. Features Gemini 3 Pro integration with transparent reasoning blocks, 3D animated flashcards, and an adaptive MCQ Quiz Agent with gamified scoring.",
-    impact: "Google AI Studio Competition Entry",
-    tech: ["Gemini 3 Pro", "React 18", "TypeScript", "Tailwind CSS", "Mermaid.js"],
-    links: [ { label: "View Code", url: "https://github.com/nameershah/MentorAI", primary: false } ]
-  },
-  {
     date: "Jan 2026",
     title: "ArcFlow Kernel",
-    desc: "Deterministic financial firewall between Google Gemini and the Arc Network. Prevents hallucinations in DeFi transactions using a strict policy engine with whitelist and budget-cap enforcement.",
+    desc: "Deterministic financial firewall between Google Gemini and the Arc Network. Prevents hallucinations in DeFi transactions using a strict policy engine.",
     impact: "Hallucination-proof commerce on Arc Testnet",
     tech: ["Arc Network", "USDC", "Gemini", "TypeScript"],
     links: [
@@ -176,9 +161,9 @@ const PROJECTS = [
   {
     date: "Dec 2025",
     title: "Meta Innovation AI",
-    desc: "Agentic innovation pipeline with stage-driven workflow: Ideation, Validation, and Execution. Structured JSON schemas enforce strict reasoning paths and reduce hallucinations in open-ended tasks.",
-    impact: "28+ organic users · SnowFest Hackathon",
-    tech: ["Gemini", "Python", "Gradio", "HF Spaces", "award:Hackathon Winner"],
+    desc: "Agentic innovation pipeline with stage-driven workflow: Ideation, Validation, and Execution. Structured JSON schemas enforce strict reasoning paths.",
+    impact: "Solo Submission · SnowFest Hackathon",
+    tech: ["Gemini", "Python", "Gradio", "HF Spaces"],
     links: [
       { label: "Live Demo", url: "https://huggingface.co/spaces/AlphaAwaken/Meta-Innovation-AI-MIA", primary: true },
       { label: "View Code", url: "https://github.com/nameershah/Meta-Innovation-AI-MIA", primary: false }
@@ -187,8 +172,8 @@ const PROJECTS = [
   {
     date: "Nov 2025",
     title: "TaleemAI",
-    desc: "Self-healing agentic tutor with deterministic fallback and recovery logic. Multi-agent system with H.E.A.R.L. routing that dynamically switches between Llama 3 via Groq and Gemini based on query complexity.",
-    impact: "100+ visits · Team Lead",
+    desc: "Self-healing agentic tutor with deterministic fallback logic. Multi-agent system with H.E.A.R.L. routing that dynamically switches models based on query complexity.",
+    impact: "HEC / Pak Angels GenAI Hackathon · Team Lead",
     tech: ["Groq", "Llama 3", "Streamlit", "Python"],
     links: [
       { label: "Live Demo", url: "https://huggingface.co/spaces/AlphaAwaken/TaleemAI", primary: true },
