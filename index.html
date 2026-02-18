@@ -56,6 +56,9 @@
         h1 { font-size: 3.25rem; font-weight: 800; letter-spacing: -1px; background: linear-gradient(135deg, #ffffff 0%, #c9d1d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.25rem; }
         .hero-sub { font-size: 1.15rem; color: var(--text-sub); max-width: 680px; margin: 0 auto; line-height: 1.75; }
 
+        /* SECTION TITLE */
+        .section-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 1.75rem; color: var(--text); }
+
         /* GRID */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 1.75rem; margin-bottom: 5rem; }
 
@@ -79,6 +82,8 @@
         .card:nth-child(2) { animation-delay: 0.12s; }
         .card:nth-child(3) { animation-delay: 0.19s; }
         .card:nth-child(4) { animation-delay: 0.26s; }
+        .card:nth-child(5) { animation-delay: 0.33s; }
+        .card:nth-child(6) { animation-delay: 0.40s; }
 
         .card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
         .badge { align-self: flex-start; font-size: 0.70rem; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: #fff; background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%); padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(88,166,255,0.25); }
@@ -142,10 +147,20 @@ const PROJECTS = [
   {
     date: "Feb 2026",
     title: "Flux OS",
-    desc: "Recursive multi-agent orchestrator for autonomous supply chains. Features game-theoretic negotiation, cross-vendor arbitrage, and on-chain settlement via Circle's Arc Testnet.",
+    desc: "Recursive multi-agent orchestrator for autonomous supply chains. Features game-theoretic negotiation, cross-vendor arbitrage, and on-chain settlement via Circle's Arc Testnet. The ArcFlow Safety Kernel enforces deterministic policy — no LLM ever touches a private key.",
     impact: "Hack-Nation '26 — 2nd Place Winner",
     tech: ["Multi-Agent", "FastAPI", "Next.js", "Python", "TypeScript", "Arc Testnet", "award:Hack-Nation '26"],
     links: [ { label: "View Code", url: "https://github.com/nameershah/flux-os", primary: false } ]
+  },
+  {
+    date: "Feb 2026",
+    title: "n8n Discord Automation Templates",
+    desc: "Three production-ready n8n workflow templates — an AI hackathon finder that runs weekly across 60+ US universities, a LinkedIn post generator powered by Groq LLaMA 3.3 70B, and a daily inspiration bot. Built live for 84 students at HEC Generative AI Cohort 2.",
+    impact: "Open Source — HEC Generative AI Cohort 2",
+    tech: ["n8n", "Groq", "LLaMA 3.3", "Discord", "Tavily", "award:Open Source"],
+    links: [
+      { label: "View Code", url: "https://github.com/nameershah/n8n-discord-automation-templates", primary: false }
+    ]
   },
   {
     date: "Jan 2026",
